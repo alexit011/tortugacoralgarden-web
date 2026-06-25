@@ -245,6 +245,9 @@ section{position:relative}
 /* ---------- Form (Klaviyo wrapper) ---------- */
 .form-section{background:var(--cream);padding-block:clamp(60px,8vw,110px)}
 .form-note{max-width:720px;margin:18px auto 0;text-align:center;color:var(--ink-soft)}
+/* Suprimir cualquier pop-up de Klaviyo (p.ej. el de -5€ de AguaNEA) en este sitio,
+   manteniendo ÚNICAMENTE el formulario de inscripción incrustado (Ra6syW). */
+div[class*="klaviyo-form-"]:not(.klaviyo-form-Ra6syW){display:none !important}
 
 /* ---------- Legal pages ---------- */
 .legal{max-width:860px;margin:0 auto;padding-block:clamp(50px,7vw,90px)}

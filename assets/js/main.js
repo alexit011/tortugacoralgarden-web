@@ -62,4 +62,20 @@
   document.querySelectorAll('[data-year]').forEach(function(el){
     el.textContent = new Date().getFullYear();
   });
+
+  // ---- Suprimir pop-ups de Klaviyo de AguaNEA (mantener solo el formulario Ra6syW) ----
+  // El script de Klaviyo de la cuenta (compartida con AguaNEA) intenta abrir el pop-up
+  // de -5€ en cualquier web que lo cargue. Lo cerramos y liberamos el scroll.
+  var KEEP = 'Ra6syW';
+  window.addEventListener('klaviyoForms', function(e){
+    try{
+      var d = e.detail || {};
+      if (d.formId && d.formId !== KEEP){
+        var el = document.querySelector('.klaviyo-form-' + d.formId);
+        if (el){ el.style.display = 'none'; }
+        document.documentElement.style.overflow = '';
+        document.body.style.overflow = '';
+      }
+    }catch(err){}
+  });
 })();
